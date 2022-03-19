@@ -1,6 +1,6 @@
 galaxy_info:
   author: Vladyslav Karpenko
-  description: Ansible role for configuring Ubuntu 20.04 with Java, Tomcat, Maven for project **Geo citizen**
+  description: Ansible role for configuring Ubuntu 20.04 with Java, Tomcat, Maven for project Geo citizen
   company: SoftServe IT Academy
 
   # If the issue tracker for your role is not on github, uncomment the

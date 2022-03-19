@@ -1,6 +1,5 @@
 ---
 # tasks file for geo_web
-
 - include_tasks: "tomcat-setup-Debian.yml"
 - include_tasks: "app_geo.yml"
 - include_tasks: "mvn_build.yml"
