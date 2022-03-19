@@ -1,0 +1,38 @@
+- name: "Find out if Geo citizen folder and pom.xml is present"
+  stat:
+    path: "{{ proj_dir }}/pom.xml"
+  register: repo_data
+
+- name: "Cloning git repository"
+  git:
+    repo: 'https://github.com/mentorchita/Geocit134.git'
+    dest: "{{ proj_dir }}"
+    clone: yes
+  when: not repo_data.stat.exists
+
+- name: "Copy pom.xml"
+  copy:
+    src: pom.xml
+    dest: "{{ proj_dir }}/pom.xml"
+
+- name: "Fix favicon"
+  replace:
+    path: "{{ proj_dir }}/src/main/webapp/index.html"
+    regexp: '\/src\/assets'
+    replace: ./static
+
+- name: "Fix .js files"
+  replace:
+    path: "{{ item }}"
+    regexp: 'localhost'
+    replace: "{{ web_domain_name }}"
+  loop:
+    - "{{ proj_dir }}/src/main/webapp/static/js/app.6313e3379203ca68a255.js"
+    - "{{ proj_dir }}/src/main/webapp/static/js/app.6313e3379203ca68a255.js.map"
+    - "{{ proj_dir }}/src/main/webapp/static/js/vendor.9ad8d2b4b9b02bdd427f.js"
+    - "{{ proj_dir }}/src/main/webapp/static/js/vendor.9ad8d2b4b9b02bdd427f.js.map"
+
+- name: Template application.properties
+  template:
+    src: application.properties.j2
+    dest: "{{ proj_dir }}/src/main/resources/application.properties"
