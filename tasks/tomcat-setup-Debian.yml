@@ -18,7 +18,7 @@
 
 - name: Install basic packages
   package:
-    name: ['vim','aptitude','bash-completion','tmux','tree','htop','wget','unzip','curl','git', 'openjdk-11-jdk', 'maven']
+    name: ['vim', 'aptitude', 'bash-completion', 'tmux', 'tree', 'htop', 'wget', 'unzip', 'curl', 'git', 'openjdk-11-jdk', 'maven']
     state: present
     update_cache: yes
 

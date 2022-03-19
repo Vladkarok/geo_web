@@ -1,7 +1,8 @@
 ---
 # defaults file for geo_web
 JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
-tomcat_ver: 9.0.60                          # Tomcat version to install. Check the current available
+# Tomcat version to install. Check the current available
+tomcat_ver: 9.0.60                          
 web_domain_name: geocitizen.vladkarok.ml
 db_domain: dbgeo.vladkarok.ml
 proj_dir: ~/Geocit134
